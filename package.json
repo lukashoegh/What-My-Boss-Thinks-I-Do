@@ -1,0 +1,19 @@
+{
+  "name": "what-my-boss-thinks-i-do",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukashoegh/What-My-Boss-Thinks-I-Do.git"
+  },
+  "author": "Lukas Høgh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukashoegh/What-My-Boss-Thinks-I-Do/issues"
+  },
+  "homepage": "https://github.com/lukashoegh/What-My-Boss-Thinks-I-Do#readme"
+}
