@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "istanbul test node_modules/mocha/bin/_mocha -- --recursive"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,19 @@
   "bugs": {
     "url": "https://github.com/lukashoegh/What-My-Boss-Thinks-I-Do/issues"
   },
-  "homepage": "https://github.com/lukashoegh/What-My-Boss-Thinks-I-Do#readme"
+  "homepage": "https://github.com/lukashoegh/What-My-Boss-Thinks-I-Do#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/chai-as-promised": "0.0.29",
+    "@types/mocha": "^2.2.39",
+    "@types/sinon": "^1.16.35",
+    "@types/sinon-chai": "^2.7.27",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
+    "typescript": "^2.1.6"
+  }
 }
