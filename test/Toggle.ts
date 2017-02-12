@@ -16,7 +16,7 @@ let inputSpy: sinon.SinonSpy;
 describe("Toggle", function () {
     beforeEach(function () {
         toggle = new Toggle();
-        stubInput = { receive: (value: any) => {} };
+        stubInput = { receive: (value: any) => { } };
         inputSpy = sinon.spy(stubInput, "receive");
     });
 
@@ -97,6 +97,12 @@ describe("Toggle", function () {
     });
 
     it("Connections should not be triggered, when a toggle occurs as a retult of receiving an input", function () {
-        
+        let testConnection: Connection = {
+            output: ToggleOutputs.Toggle,
+            input: stubInput
+        }
+        toggle.registerConnection(testConnection);
+        toggle.inputs[ToggleInputs.On].receive();
+        inputSpy.should.not.have.been.called;
     });
 });
