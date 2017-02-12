@@ -28,14 +28,6 @@ describe("Toggle", function () {
         toggle.inputs[Toggle_2.ToggleInputs.Toggle].receive('test');
         toggle.state.should.equal(true);
     });
-    it("When the on input is called with any value, the toggle state becomes true", function () {
-        toggle.inputs[Toggle_2.ToggleInputs.On].receive(false);
-        toggle.state.should.equal(true);
-    });
-    it("When the off input is called with any value, the toggle state becomes false", function () {
-        toggle.inputs[Toggle_2.ToggleInputs.Off].receive(false);
-        toggle.state.should.equal(false);
-    });
     it("When a toggle is reset, it returns to its initial value", function () {
         toggle.inputs[Toggle_2.ToggleInputs.Toggle].receive(false);
         toggle.state.should.equal(true);
@@ -93,12 +85,5 @@ describe("Toggle", function () {
         inputSpy.should.have.been.calledTwice;
     });
     it("Connections should not be triggered, when a toggle occurs as a retult of receiving an input", function () {
-        var testConnection = {
-            output: Toggle_2.ToggleOutputs.Toggle,
-            input: stubInput
-        };
-        toggle.registerConnection(testConnection);
-        toggle.inputs[Toggle_2.ToggleInputs.Toggle].receive();
-        inputSpy.should.not.have.been.called;
     });
 });
