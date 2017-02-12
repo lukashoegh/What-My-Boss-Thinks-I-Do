@@ -2,8 +2,9 @@ import Input from './Input';
 import Output from './Output';
 import Connection from './Connection';
 import Control from './Control';
-import { InputOn, InputOff, InputToggle, InputFromValue } from './Input';
-import { OutputOn, OutputOff, OutputToggle } from './Output';
+import { InputToggle, InputSetOn, InputSetOff, InputSetFromValue } from './Input';
+import { OutputWhenOn, OutputWhenOff, OutputWhenToggled } from './Output';
+import Indicator from './Indicator';
 
 export enum ToggleInputs {
     On,
@@ -17,17 +18,17 @@ export enum ToggleOutputs {
     Toggle
 }
 
-export default class Toggle implements Control {
+export default class Toggle implements Control, Indicator {
     public inputs: Array<Input> = [
-        new InputOn(this),
-        new InputOff(this),
+        new InputSetOn(this),
+        new InputSetOff(this),
         new InputToggle(this),
-        new InputFromValue(this)        
+        new InputSetFromValue(this)        
     ];
     private outputs: Array<Output> = [
-        new OutputOn(this),
-        new OutputOff(this),
-        new OutputToggle(this)
+        new OutputWhenOn(this),
+        new OutputWhenOff(this),
+        new OutputWhenToggled(this)
     ];
 
     private connections: Array<Connection> = [];

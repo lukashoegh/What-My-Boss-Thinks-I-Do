@@ -85,7 +85,7 @@ describe("Toggle", function () {
 
     })
 
-    describe("Outputs", function {
+    describe("Outputs", function () {
         it("Register a connection to the toggle output. Whenever the toggle is toggled, the current state should be sent along the connection", function () {
             let testConnection: Connection = {
                 output: ToggleOutputs.Toggle,

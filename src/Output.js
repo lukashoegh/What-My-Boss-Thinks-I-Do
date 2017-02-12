@@ -1,33 +1,33 @@
 "use strict";
-var OutputOn = (function () {
-    function OutputOn(subject) {
+var OutputWhenOn = (function () {
+    function OutputWhenOn(subject) {
         this.subject = subject;
     }
-    OutputOn.prototype.sendTo = function (input) {
+    OutputWhenOn.prototype.sendTo = function (input) {
         if (this.subject.state == true)
             input.receive();
     };
-    return OutputOn;
+    return OutputWhenOn;
 }());
-exports.OutputOn = OutputOn;
-var OutputOff = (function () {
-    function OutputOff(subject) {
+exports.OutputWhenOn = OutputWhenOn;
+var OutputWhenOff = (function () {
+    function OutputWhenOff(subject) {
         this.subject = subject;
     }
-    OutputOff.prototype.sendTo = function (input) {
+    OutputWhenOff.prototype.sendTo = function (input) {
         if (this.subject.state == false)
             input.receive();
     };
-    return OutputOff;
+    return OutputWhenOff;
 }());
-exports.OutputOff = OutputOff;
-var OutputToggle = (function () {
-    function OutputToggle(subject) {
+exports.OutputWhenOff = OutputWhenOff;
+var OutputWhenToggled = (function () {
+    function OutputWhenToggled(subject) {
         this.subject = subject;
     }
-    OutputToggle.prototype.sendTo = function (input) {
+    OutputWhenToggled.prototype.sendTo = function (input) {
         input.receive(this.subject.state);
     };
-    return OutputToggle;
+    return OutputWhenToggled;
 }());
-exports.OutputToggle = OutputToggle;
+exports.OutputWhenToggled = OutputWhenToggled;

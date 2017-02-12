@@ -1,24 +1,24 @@
 "use strict";
-var InputOn = (function () {
-    function InputOn(subject) {
+var InputSetOn = (function () {
+    function InputSetOn(subject) {
         this.subject = subject;
     }
-    InputOn.prototype.receive = function () {
+    InputSetOn.prototype.receive = function () {
         this.subject.state = true;
     };
-    return InputOn;
+    return InputSetOn;
 }());
-exports.InputOn = InputOn;
-var InputOff = (function () {
-    function InputOff(subject) {
+exports.InputSetOn = InputSetOn;
+var InputSetOff = (function () {
+    function InputSetOff(subject) {
         this.subject = subject;
     }
-    InputOff.prototype.receive = function () {
+    InputSetOff.prototype.receive = function () {
         this.subject.state = false;
     };
-    return InputOff;
+    return InputSetOff;
 }());
-exports.InputOff = InputOff;
+exports.InputSetOff = InputSetOff;
 var InputToggle = (function () {
     function InputToggle(subject) {
         this.subject = subject;
@@ -29,11 +29,11 @@ var InputToggle = (function () {
     return InputToggle;
 }());
 exports.InputToggle = InputToggle;
-var InputFromValue = (function () {
-    function InputFromValue(subject) {
+var InputSetFromValue = (function () {
+    function InputSetFromValue(subject) {
         this.subject = subject;
     }
-    InputFromValue.prototype.receive = function (value) {
+    InputSetFromValue.prototype.receive = function (value) {
         if (value === true || value === 1) {
             this.subject.state = true;
         }
@@ -41,6 +41,6 @@ var InputFromValue = (function () {
             this.subject.state = false;
         }
     };
-    return InputFromValue;
+    return InputSetFromValue;
 }());
-exports.InputFromValue = InputFromValue;
+exports.InputSetFromValue = InputSetFromValue;

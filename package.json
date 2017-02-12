@@ -16,7 +16,9 @@
     "url": "https://github.com/lukashoegh/What-My-Boss-Thinks-I-Do/issues"
   },
   "homepage": "https://github.com/lukashoegh/What-My-Boss-Thinks-I-Do#readme",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.4.2"
+  },
   "devDependencies": {
     "@types/chai": "^3.4.34",
     "@types/chai-as-promised": "0.0.29",

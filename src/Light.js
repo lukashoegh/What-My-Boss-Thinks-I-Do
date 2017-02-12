@@ -12,10 +12,10 @@ var Light = (function () {
         if (initialState === void 0) { initialState = false; }
         this.initialState = initialState;
         this.inputs = [
-            new Input_1.InputOn(this),
-            new Input_1.InputOff(this),
+            new Input_1.InputSetOn(this),
+            new Input_1.InputSetOff(this),
             new Input_1.InputToggle(this),
-            new Input_1.InputFromValue(this)
+            new Input_1.InputSetFromValue(this)
         ];
         this.state = initialState;
     }

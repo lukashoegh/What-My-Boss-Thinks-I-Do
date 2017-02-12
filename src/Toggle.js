@@ -19,15 +19,15 @@ var Toggle = (function () {
         if (initialState === void 0) { initialState = false; }
         this.initialState = initialState;
         this.inputs = [
-            new Input_1.InputOn(this),
-            new Input_1.InputOff(this),
+            new Input_1.InputSetOn(this),
+            new Input_1.InputSetOff(this),
             new Input_1.InputToggle(this),
-            new Input_1.InputFromValue(this)
+            new Input_1.InputSetFromValue(this)
         ];
         this.outputs = [
-            new Output_1.OutputOn(this),
-            new Output_1.OutputOff(this),
-            new Output_1.OutputToggle(this)
+            new Output_1.OutputWhenOn(this),
+            new Output_1.OutputWhenOff(this),
+            new Output_1.OutputWhenToggled(this)
         ];
         this.connections = [];
         this.state = initialState;

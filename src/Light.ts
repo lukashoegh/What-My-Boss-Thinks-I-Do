@@ -1,6 +1,6 @@
 import Indicator from './Indicator';
 import Input from './Input';
-import { InputOn, InputOff, InputToggle, InputFromValue } from './Input';
+import { InputToggle, InputSetOn, InputSetOff, InputSetFromValue } from './Input';
 
 export enum LightInputs {
     On,
@@ -13,10 +13,10 @@ export default class Light implements Indicator {
     public state: boolean;
 
     public inputs: Array<Input> = [
-        new InputOn(this),
-        new InputOff(this),
+        new InputSetOn(this),
+        new InputSetOff(this),
         new InputToggle(this),
-        new InputFromValue(this)       
+        new InputSetFromValue(this)     
     ]
 
     constructor(private initialState = false) {
