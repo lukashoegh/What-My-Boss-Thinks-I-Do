@@ -2,11 +2,14 @@ import Input from './Input';
 import Output from './Output';
 import Connection from './Connection';
 import Control from './Control';
+import { InputOn, InputOff, InputToggle, InputFromValue } from './Input';
+import { OutputOn, OutputOff, OutputToggle } from './Output';
 
 export enum ToggleInputs {
     On,
     Off,
-    Toggle
+    Toggle,
+    FromValue
 }
 export enum ToggleOutputs {
     On,
@@ -16,38 +19,15 @@ export enum ToggleOutputs {
 
 export default class Toggle implements Control {
     public inputs: Array<Input> = [
-        {
-            receive: (value: any) => {
-                this.state = true;
-            }
-        },
-        {
-            receive: (value: any) => {
-                this.state = false;
-            }
-        },
-        {
-            receive: (value: any) => {
-                this.state = !this.state;
-            }
-        }
+        new InputOn(this),
+        new InputOff(this),
+        new InputToggle(this),
+        new InputFromValue(this)        
     ];
     private outputs: Array<Output> = [
-        {
-            sendTo: (input) => {
-                if (this.state == true) input.receive();
-            }
-        },
-        {
-            sendTo: (input) => {
-                if (this.state == false) input.receive();
-            }
-        },
-        {
-            sendTo: (input) => {
-                input.receive(this.state);
-            }
-        }
+        new OutputOn(this),
+        new OutputOff(this),
+        new OutputToggle(this)
     ];
 
     private connections: Array<Connection> = [];

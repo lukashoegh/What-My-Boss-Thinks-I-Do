@@ -1,9 +1,12 @@
 "use strict";
+var Input_1 = require("./Input");
+var Output_1 = require("./Output");
 var ToggleInputs;
 (function (ToggleInputs) {
     ToggleInputs[ToggleInputs["On"] = 0] = "On";
     ToggleInputs[ToggleInputs["Off"] = 1] = "Off";
     ToggleInputs[ToggleInputs["Toggle"] = 2] = "Toggle";
+    ToggleInputs[ToggleInputs["FromValue"] = 3] = "FromValue";
 })(ToggleInputs = exports.ToggleInputs || (exports.ToggleInputs = {}));
 var ToggleOutputs;
 (function (ToggleOutputs) {
@@ -14,43 +17,17 @@ var ToggleOutputs;
 var Toggle = (function () {
     function Toggle(initialState) {
         if (initialState === void 0) { initialState = false; }
-        var _this = this;
         this.initialState = initialState;
         this.inputs = [
-            {
-                receive: function (value) {
-                    _this.state = true;
-                }
-            },
-            {
-                receive: function (value) {
-                    _this.state = false;
-                }
-            },
-            {
-                receive: function (value) {
-                    _this.state = !_this.state;
-                }
-            }
+            new Input_1.InputOn(this),
+            new Input_1.InputOff(this),
+            new Input_1.InputToggle(this),
+            new Input_1.InputFromValue(this)
         ];
         this.outputs = [
-            {
-                sendTo: function (input) {
-                    if (_this.state == true)
-                        input.receive();
-                }
-            },
-            {
-                sendTo: function (input) {
-                    if (_this.state == false)
-                        input.receive();
-                }
-            },
-            {
-                sendTo: function (input) {
-                    input.receive(_this.state);
-                }
-            }
+            new Output_1.OutputOn(this),
+            new Output_1.OutputOff(this),
+            new Output_1.OutputToggle(this)
         ];
         this.connections = [];
         this.state = initialState;
